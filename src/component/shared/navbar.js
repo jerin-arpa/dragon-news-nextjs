@@ -16,6 +16,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Link from "next/link";
 import Stack from "@mui/material/Stack";
+import Header from "./header";
 
 const navItems = [
   {
@@ -46,41 +47,44 @@ const navItems = [
 
 function Navbar() {
   return (
-    <AppBar position="static" className="bg-black">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Image src={logo} width={100} height={100} alt="logo" />
-          <Box className="w-full text-center">
-            {navItems.map((item) => (
-              <Link key={item} href={item.pathname}>
-                <Button className="text-white">{item.route}</Button>
-              </Link>
-            ))}
-          </Box>
+    <>
+      <Header></Header>
+      <AppBar position="static" className="bg-black">
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Image src={logo} width={100} height={100} alt="logo" />
+            <Box className="w-full text-center">
+              {navItems.map((item) => (
+                <Link key={item} href={item.pathname}>
+                  <Button className="text-white">{item.route}</Button>
+                </Link>
+              ))}
+            </Box>
 
-          <Box>
-            <Stack
-              direction="row"
-              sx={{
-                "& svg": {
-                  color: "white",
-                },
-              }}
-            >
-              <IconButton>
-                <FacebookOutlinedIcon></FacebookOutlinedIcon>
-              </IconButton>
-              <IconButton>
-                <LinkedInIcon></LinkedInIcon>
-              </IconButton>
-              <IconButton>
-                <InstagramIcon></InstagramIcon>
-              </IconButton>
-            </Stack>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+            <Box>
+              <Stack
+                direction="row"
+                sx={{
+                  "& svg": {
+                    color: "white",
+                  },
+                }}
+              >
+                <IconButton>
+                  <FacebookOutlinedIcon></FacebookOutlinedIcon>
+                </IconButton>
+                <IconButton>
+                  <LinkedInIcon></LinkedInIcon>
+                </IconButton>
+                <IconButton>
+                  <InstagramIcon></InstagramIcon>
+                </IconButton>
+              </Stack>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </>
   );
 }
 export default Navbar;
