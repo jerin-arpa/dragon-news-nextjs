@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/component/shared/navbar";
+import Footer from "@/component/shared/footer";
+import { Container } from "@mui/material";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +16,8 @@ export default function RootLayout({ children }) {
     <html lang="en" data-theme="light">
       <body className={inter.className}>
         <Navbar></Navbar>
-        {children}
+        <Container className="min-h-screen">{children}</Container>
+        <Footer></Footer>
       </body>
     </html>
   );
